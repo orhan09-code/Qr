@@ -392,7 +392,9 @@ a { color: inherit; text-decoration: none; }
 .card-image-wrap img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  /* object-fit: cover; <--- Eğer bu satır hala duruyorsa mutlaka SİL veya DEĞİŞTİR */
+  object-fit: contain;   /* Resmin tamamını kutunun içine sığdırır, kırpmaz */
+  background-color: var(--bg-chip); /* Resim tam sığmazsa arkada kalan boşluk için */
   transition: transform 0.4s;
 }
 
@@ -649,7 +651,9 @@ a { color: inherit; text-decoration: none; }
   .card-image-wrap {
     width: 100%;
     min-width: unset;
-    height: 160px;
+    /* height: 160px;  <-- Bu satırı siliyoruz veya yorum yapıyoruz */
+    height: auto;      /* Resmin kendi oranını koruması için auto yaptık */
+    aspect-ratio: 4 / 3; /* Resimlerin kutuda düzgün durması için bir oran verdik */
   }
 }
 
